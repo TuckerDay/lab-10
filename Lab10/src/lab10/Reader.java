@@ -57,14 +57,6 @@ public class Reader {
 		}
 	}
 	
-	// Prints words to console
-	public void printWords()
-	{
-		for (int i = 0; i < words.size(); i++) {
-			System.out.println(words.get(i));
-		}
-	}
-	
 	// Get array of words
 	public ArrayList<String> getArray(){
 		return words;
