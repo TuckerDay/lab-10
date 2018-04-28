@@ -25,7 +25,23 @@ public class Sorting {
 				wordArray.set(min,  wordArray.get(index));
 				wordArray.set(index, temp);
 		} 
-	} 
+	}
 	
+	public static void insertionSort (ArrayList<Word> wordArray) 
+	{ 
+		for ( int index = 1; index < wordArray.size(); index++)
+		{ 
+			Integer key = wordArray.get(index).getFreq(); 
+			int position = index;
+		
+			// Shift larger values to the right 
+			while ( position > 0 && key < wordArray.get(position-1).getFreq()) 
+			{ 
+				wordArray.set(position, wordArray.get(position-1));
+				position--; 
+			} 
+			wordArray.set(position, wordArray.get(index));
+		}
+	}
 
 }

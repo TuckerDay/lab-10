@@ -22,6 +22,7 @@ public class Reader {
 		
 		try {
 			bookScan = new Scanner(book);
+			//bookScan.useDelimiter("\n");
 			read(bookScan);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
