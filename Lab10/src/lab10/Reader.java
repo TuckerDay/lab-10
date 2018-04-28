@@ -41,8 +41,8 @@ public class Reader {
 			
 			// Scan the previously created line
 			lineScanner = new Scanner(line);
-			lineScanner.useDelimiter(" ");
-			
+			lineScanner.useDelimiter("\\s+|\\.|\"|,|\\?|\\!|\\n|\\t");
+		
 			readLine(lineScanner);
 		}
 	}
