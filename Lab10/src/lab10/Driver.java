@@ -31,7 +31,7 @@ public class Driver {
 		wordArray = new ArrayList<Word>();
 		wordArray1 = new ArrayList<Word>();
 		
-		//removes small words from bookArray
+		//removes small words from bookArray1
 		for (int i = 0; i < bookArray1.size(); i++)
 		{			
 			if (bookArray1.get(i).equalsIgnoreCase("the") || bookArray1.get(i).equalsIgnoreCase("and") || bookArray1.get(i).equalsIgnoreCase("it") ||
@@ -49,6 +49,7 @@ public class Driver {
 			}
 		}
 		
+		//removes multiples of words in wordArray
 		for (int i = 0; i < wordArray.size(); i++)
 		{				
 			for (int j = 0; j < wordArray.size(); j++)
@@ -60,8 +61,8 @@ public class Driver {
 			}
 		}
 			
-			// For each word in book array: see if word is in wordArray
-			// if the word is in the book array, increment its frequency
+		// For each word in book array: see if word is in wordArray
+		// if the word is in wordArray, increment its frequency
 		for (int i = 0; i < bookArray1.size(); i++)
 		{
 			for (int j = 0; j < wordArray.size(); j++)
@@ -78,24 +79,7 @@ public class Driver {
 			}
 		}
 	
-		//removes multiples, keeps largest frequency
-		/*for (int i = 0; i < wordArray.size(); i++)
-		{
-			for (int j = 0; j < wordArray.size(); j++)
-			{
-				if (wordArray.get(i).getText().equals(wordArray.get(j).getText()))
-				{
-					if (wordArray.get(i).getFreq()>wordArray.get(j).getFreq())
-					{
-						wordArray.remove(j);
-					}
-					else if (wordArray.get(i).getFreq()<wordArray.get(j).getFreq())
-					{
-						wordArray.remove(i);
-					}
-				}
-			}
-		}*/
+		//removes small words from bookArray2
 		for (int i = 0; i < bookArray2.size(); i++)
 		{			
 			if (bookArray2.get(i).equalsIgnoreCase("the") || bookArray2.get(i).equalsIgnoreCase("and") || bookArray2.get(i).equalsIgnoreCase("it") ||
@@ -105,7 +89,7 @@ public class Driver {
 				continue;
 			}
 					
-				// creates word objects for every word in bookArray and adds it to wordArray
+			// creates word objects for every word in bookArray and adds it to wordArray1
 			else
 			{
 				Word newWord = new Word(bookArray2.get(i),1);
@@ -113,6 +97,7 @@ public class Driver {
 			}
 		}
 		
+		//removes multiples of words in wordArray1
 		for (int i = 0; i < wordArray1.size(); i++)
 		{				
 			for (int j = 0; j < wordArray1.size(); j++)
@@ -124,13 +109,13 @@ public class Driver {
 			}
 		}
 				
-				// For each word in book array: see if word is in wordArray
-				// if the word is in the book array, increment its frequency
-		for (int i = 0; i < bookArray1.size(); i++)
+		// For each word in bookArray2: see if word is in wordArray1
+		// if the word is in wordArray1, increment its frequency
+		for (int i = 0; i < bookArray2.size(); i++)
 		{
 			for (int j = 0; j < wordArray1.size(); j++)
 			{	
-				if (wordArray1.get(j).getText().equalsIgnoreCase(bookArray1.get(i)))
+				if (wordArray1.get(j).getText().equalsIgnoreCase(bookArray2.get(i)))
 				{
 					wordArray1.get(j).setFreq(wordArray1.get(j).getFreq()+1);
 					break;
@@ -210,19 +195,27 @@ public class Driver {
 			System.out.println("Word: " + wordArray.get(i).getText() + "\nFrequency: " + wordArray.get(i).getFreq());
 		}*/
 		
-		/*int place = 1;
+		//Prints out top ten most frequent words in Coyote.txt
+		System.out.println("Coyote.txt");
+		int place = 1;
 		for (int i = 1; i < 11; i++)
 		{
 			System.out.println(place + ". Word: " + wordArray.get(i).getText() + "\nFrequency: " + wordArray.get(i).getFreq() + "\nPercentage: " + (wordArray.get(i).getFreq()*100)/bookArray1.size() + "%");
 			place++;
 		}
+		System.out.println("\n");
+		
+		//Prints out top ten most frequent words in Coyote and the Bitterroot Valley.txt
+		System.out.println("Coyote and the Bitterroot Valley.txt");
 		int place2 = 1;
 		for (int i = 1; i < 11; i++)
 		{
 			System.out.println(place2 + ". Word: " + wordArray1.get(i).getText() + "\nFrequency: " + wordArray1.get(i).getFreq() + "\nPercentage: " + (wordArray1.get(i).getFreq()*100)/bookArray2.size() + "%");
 			place2++;
-		}*/
-		System.out.println(Searching.linearSearch(wordArray, "Coyote"));
+		}
+		
+		
+		//System.out.println(Searching.linearSearch(wordArray, "Coyote"));
 		
 
 	}
