@@ -15,7 +15,7 @@ public class Searching {
 				index++;
 		}
 		if (found)
-			return "Found Frequency: " + wordArray.get(index).getFreq();
+			return "Found Frequency of " + word + ": " + wordArray.get(index).getFreq();
 		else
 			return null;
 	}

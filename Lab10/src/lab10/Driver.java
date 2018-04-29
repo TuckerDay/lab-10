@@ -126,26 +126,7 @@ public class Driver {
 				}
 			}
 		}
-		
-		//removes multiples, keeps largest frequency
-		/*for (int i = 0; i < wordArray1.size(); i++)
-		{
-			for (int j = 0; j < wordArray1.size(); j++)
-			{
-				if (wordArray1.get(i).getText().equals(wordArray1.get(j).getText()))
-				{
-					if (wordArray1.get(i).getFreq()>wordArray1.get(j).getFreq())
-					{
-						wordArray1.remove(j);
-					}
-					else if (wordArray1.get(i).getFreq()<wordArray1.get(j).getFreq())
-					{
-						wordArray1.remove(i);
-					}
-				}
-			}
-		}*/
-		//Sorting.insertionSort(wordArray);
+
 		Sorting.selectionSort(wordArray);
 		Sorting.selectionSort(wordArray);
 		Sorting.selectionSort(wordArray);
@@ -162,8 +143,6 @@ public class Driver {
 		Sorting.selectionSort(wordArray);
 		Sorting.selectionSort(wordArray);
 		
-		
-		//Sorting.insertionSort(wordArray1);
 		Sorting.selectionSort(wordArray1);
 		Sorting.selectionSort(wordArray1);
 		Sorting.selectionSort(wordArray1);
@@ -180,42 +159,46 @@ public class Driver {
 		Sorting.selectionSort(wordArray1);
 		Sorting.selectionSort(wordArray1);
 		
-		//System.out.println(bookArray1);
-		//System.out.println(wordArray.size());
-		//System.out.println(bookArray2);
-		//System.out.println(wordArray1.size());
+		//Prints out top ten most frequent words in Coyote.txt plus their frequency in and percentage of the text
+		//Also adds the top ten words to a String array
+		String[] wordArrayTop10 = new String[10];
+		String[] wordArray1Top10 = new String[10];
 		
-		/*for (int i = 0; i < wordArray1.size(); i++)
-		{
-			System.out.println("Word: " + wordArray1.get(i).getText() + "\nFrequency: " + wordArray1.get(i).getFreq());
-		}
-		
-		for (int i = 0; i < wordArray.size(); i++)
-		{
-			System.out.println("Word: " + wordArray.get(i).getText() + "\nFrequency: " + wordArray.get(i).getFreq());
-		}*/
-		
-		//Prints out top ten most frequent words in Coyote.txt
 		System.out.println("Coyote.txt");
-		int place = 1;
 		for (int i = 1; i < 11; i++)
 		{
-			System.out.println(place + ". Word: " + wordArray.get(i).getText() + "\nFrequency: " + wordArray.get(i).getFreq() + "\nPercentage: " + (wordArray.get(i).getFreq()*100)/bookArray1.size() + "%");
-			place++;
+			System.out.println(i + ". Word: " + wordArray.get(i).getText() + "\nFrequency: " + wordArray.get(i).getFreq() + "\nPercentage: " + (wordArray.get(i).getFreq()*100)/bookArray1.size() + "%");
+			wordArrayTop10[i-1] = wordArray.get(i).getText();
 		}
 		System.out.println("\n");
 		
-		//Prints out top ten most frequent words in Coyote and the Bitterroot Valley.txt
+		//Prints out top ten most frequent words in Coyote and the Bitterroot Valley.txt plus their frequency in and percentage of the text
+		//Also adds the top ten words to a String array
 		System.out.println("Coyote and the Bitterroot Valley.txt");
-		int place2 = 1;
 		for (int i = 1; i < 11; i++)
 		{
-			System.out.println(place2 + ". Word: " + wordArray1.get(i).getText() + "\nFrequency: " + wordArray1.get(i).getFreq() + "\nPercentage: " + (wordArray1.get(i).getFreq()*100)/bookArray2.size() + "%");
-			place2++;
+			System.out.println(i + ". Word: " + wordArray1.get(i).getText() + "\nFrequency: " + wordArray1.get(i).getFreq() + "\nPercentage: " + (wordArray1.get(i).getFreq()*100)/bookArray2.size() + "%");
+			wordArray1Top10[i-1] = wordArray1.get(i).getText();
 		}
 		
+		System.out.println("\n");
 		
-		//System.out.println(Searching.linearSearch(wordArray, "Coyote"));
+		// Check to see which words the two top 10 String arrays have in common and prints out statements accordingly
+		for (int i = 0; i < 10; i++)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				if (wordArrayTop10[i].equals(wordArray1Top10[j]))
+				{
+					System.out.println("Coyote.txt and Coyote and the Bitterroot Valley.txt both contain " + "\"" + wordArrayTop10[i] + "\"" + " in their top 10 most frequent words.");
+				}
+			}
+		}
+		
+		System.out.println("\n");
+		
+		//Example of how to search for frequency of word
+		System.out.println(Searching.linearSearch(wordArray, "Coyote"));
 		
 
 	}
